@@ -97,13 +97,24 @@
 		if(rsrc && subrsrc){
 			$('li#resource_' + rsrc + ' ul.endpoints').slideDown();
 			$('div#' + rsrc + '_' + subrsrc + '_content').slideDown();
-			$.bbq.pushState('#/' + rsrc + '/' + subrsrc, 2);
-			document.getElementById(rsrc + '_' + subrsrc).scrollIntoView();
+			try{
+				$.bbq.pushState('#/' + rsrc + '/' + subrsrc, 2);
+				document.getElementById(rsrc + '_' + subrsrc).scrollIntoView();
+			}
+			catch(e){
+				$.bbq.pushState('#/', 2);
+			}
 		}
 		else if(rsrc){
 			$('li#resource_' + rsrc + ' ul.endpoints').slideDown();
-			$.bbq.pushState('#/' + rsrc, 2);
-			document.getElementById('resource_' + rsrc).scrollIntoView();
+			try{
+				$.bbq.pushState('#/' + rsrc, 2);
+				document.getElementById('resource_' + rsrc).scrollIntoView();
+			}
+			catch(e){
+				$.bbq.pushState('#/', 2);
+			}
+			
 		}
 		
 		},
