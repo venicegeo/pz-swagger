@@ -50,7 +50,7 @@ node {
           -Dsonar.projectKey=${projectId} \
           -Dsonar.projectName=${projectId} \
           -Dsonar.language=js \
-          -Dsonar.sources=public/app \
+          -Dsonar.sources=dist \
           -Dsonar.tests=test \
           -Dsonar.projectBaseDir=${root} \
           -Dsonar.projectVersion=${appvers} \
