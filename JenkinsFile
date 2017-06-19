@@ -7,7 +7,7 @@ node {
   def nodejs = tool 'NodeJS_6'
   def appvers = sh(script: "git describe --long --tags --always | sed 's/\\./-/'g", returnStdout: true)
   appvers = appvers.trim()
-  def appName = "pz-sak-${appvers}"
+  def appName = "pz-swagger-${appvers}"
 
   stage('Setup') {
     deleteDir()
