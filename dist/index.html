@@ -31,7 +31,14 @@
 
   <script type="text/javascript">
     $(function () {
-		var mainurl = window.location.href.match(/.*\.io/i)[0];
+		var mainurl;
+                if( window.location.href.match(/.*\.io/i) ) {
+			mainurl = window.location.href.match(/.*\.io/i)[0];
+                }
+                else if( window.location.href.match(/.*\.mil/i) ) {
+			mainurl = window.location.href.match(/.*\.mil/i)[0];
+                }
+
 		var suburl = window.location.href.match(/(\#.*)/gi);
 		var rsrc;
 		var subrsrc;
