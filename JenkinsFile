@@ -48,7 +48,7 @@ node {
 			  -Dsonar.projectKey=${projectId} \
 			  -Dsonar.projectName=${projectId} \
 			  -Dsonar.language=js \
-			  -Dsonar.sources=dist \
+			  -Dsonar.sources=static \
 			  -Dsonar.tests=test \
 			  -Dsonar.projectBaseDir=${root} \
 			  -Dsonar.projectVersion=${appvers} \
@@ -75,8 +75,7 @@ node {
 
   stage('Archive') {
     // Build
-    sh "./ci/archive.sh"
-    sh "tar -czf pz-swagger.tar.gz dist"
+    sh "tar -czf pz-swagger.tar.gz static"
     // Check if exists already
     def getDependencyStatus = sh(script: """mvn -X --settings ~/.m2/settings.xml dependency:get \
       -Dmaven.repo.local="${root}/.m2/repository" \
